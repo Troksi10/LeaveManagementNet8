@@ -1,3 +1,4 @@
+using LeaveManagement.Web.Configuration;
 using LeaveManagement.Web.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<LeaveManagementDbContext>(options =>
 
 builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<LeaveManagementDbContext>();
+
+builder.Services.AddAutoMapper(typeof(MapperConfig));
 
 builder.Services.AddControllersWithViews();
 
